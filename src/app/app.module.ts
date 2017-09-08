@@ -10,6 +10,8 @@ import { RedditPage } from '../pages/reddit/reddit';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { RedditService } from '../services/reddit.service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,9 +31,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RedditPage,
   ],
   providers: [
+    RedditService,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}
