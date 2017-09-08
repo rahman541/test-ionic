@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { RedditPage } from '../pages/reddit/reddit';
+import { DetailsPage } from '../pages/details/details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +20,7 @@ import { RedditService } from '../services/reddit.service';
     HomePage,
     ListPage,
     RedditPage,
+    DetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { RedditService } from '../services/reddit.service';
     HomePage,
     ListPage,
     RedditPage,
+    DetailsPage,
   ],
   providers: [
     RedditService,
