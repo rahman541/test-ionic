@@ -10,18 +10,24 @@ import { DetailsPage } from '../details/details';
 })
 export class RedditPage {
 	items: any;
+	category: any;
+	limit: any;
 	constructor(public navCtrl: NavController, private redditService:RedditService) {
+		this.getDefault();
+	}
 
+	getDefault() {
+		this.category = 'food';
+		this.limit = 10;
 	}
 
 	ngOnInit() {
-		this.getPosts('laravel', 5);
+		this.getPosts(this.category, this.limit);
 	}
 
 	getPosts(category, limit) {
 		this.redditService.getPosts(category, limit).subscribe(response => {
 			this.items = response.data.children;
-			console.log(this.items);
 		});
 	}
 
@@ -29,6 +35,10 @@ export class RedditPage {
 		this.navCtrl.push(DetailsPage, {
 			item:item
 		});
+	}
+
+	changeCategory() {
+		this.getPosts(this.category, this.limit);
 	}
 
 }

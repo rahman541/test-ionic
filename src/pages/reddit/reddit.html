@@ -11,8 +11,19 @@
   <h3>Reddit Page</h3>
 
   <ion-list>
+    <ion-item>
+      <ion-label fixed>Category</ion-label>
+      <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
+        <ion-option value="food">Food</ion-option>
+        <ion-option value="malaysia">Malaysia</ion-option>
+        <ion-option value="laravel">Laravel</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
     <ion-item *ngFor="let item of items">
-      <ion-thumbnail *ngIf="item.data.thumbnail" item-left>
+      <ion-thumbnail *ngIf="item.data.thumbnail!='self'" item-left>
         <img src="{{ item.data.thumbnail }}">
       </ion-thumbnail>
       <h2>{{ item.data.title }}</h2>
